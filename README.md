@@ -7,7 +7,7 @@ If you worked in group, please, kindly list all of the group member names below.
 
 Write a program that does the following (the links in the notes provide useful information):
 
-1.  The program shall be invoked as ./threads <number> where <number> is the number of threads.  For example, ./threads 10 will create 10 threads.
+1.  The program shall be invoked as ./threads "number" where "number" is the number of threads.  For example, ./threads 10 will create 10 threads.
 
 2. The program will then create the specified number of threads and each thread will then generate 100 random numbers in range of 0 -- 100000 and insert them into the same shared binary search tree that is shared between all threads.
 
