@@ -17,8 +17,11 @@ Write a program that does the following (the links in the notes provide useful i
 
 # Grading:
 Program Compiles: 5'
+  
 Correct Implementation of binary search tree: 20'
+  
 Correct implementation of threads and synchronization logic: 75'
+  
 
 # Submission:
 Please submit below a tar file containing your code and README file documenting the names of all team members, instructions on how to run your program, and anything special about your program. Please name your file as a3_<yourname>.tar
