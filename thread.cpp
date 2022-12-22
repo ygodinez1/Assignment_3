@@ -167,7 +167,7 @@ if(argc !=2){
 }
     void *print_message_function( void *ptr ){
 
-      printf("THREAD NUMEBR:  %d\n", pthread_self() );
+      printf("THREAD NUMEBR:  %ld\n", pthread_self() );
       pthread_mutex_lock( &mutex1);
       counter++;
       printf("Counter VALUE: %d\n", counter );
