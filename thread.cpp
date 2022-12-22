@@ -170,7 +170,7 @@ printf("FINAL COUNTER VALUE: %d       ", counter);
     //  printf("THREAD NUMEBR:  %d\n", pthread_self() );
       pthread_mutex_lock( &mutex1);
       counter++;
-      printf("THREAD NUMEBR:  %ld\n", pthread_self(),"Counter VALUE: %d", counter );
+      printf("THREAD NUMEBR:  %ld\n", pthread_self()%100000,"Counter VALUE: %d", counter );
       pthread_mutex_unlock (&mutex1);
 
       return  0;
