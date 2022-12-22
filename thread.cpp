@@ -10,8 +10,9 @@
 #include <signal.h>
 #include <iostream>
 #include <time.h>
+
 using namespace std;
-#define NTHREADS 10
+ #define NTHREADS 10
 
 void *print_message_function( void *ptr );
 int counter =0;
@@ -133,44 +134,43 @@ struct node *deleteNode(struct node *root, int key) {
 //THREAD CREATION
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
-//pthread_mutex_lock(&lock);
+
 
 int main(int argc,char* argv[]){
-  int rc1;
-  //int num_threads = atoi(argv[1]);
-  pthread_t thread_id[NTHREADS];
+
+  int usrInput = atoi(argv[1]);
+  pthread_t thread_id[usrInput];
 if(argc !=2){
-  printf("Error:./thread <number>\n" );
+  printf("ERROR: ./threads <number>\n");
   return 1;
 }
+else{
+
+  for(int i=0; i<usrInput; i++){
+    pthread_create(  &thread_id[i], NULL,  print_message_function, NULL);
+  }
+
+//waits for thread to finish
+  for(int j =0; j < usrInput; j++){
+    pthread_join(thread_id[j], NULL);
+
+ }
 
 
+
+printf("FINAL COUNTER VALUE: %d       ", counter);
+//exit(0);}
 
 //CHECKERS
 
-
-        for(int i=0; i<NTHREADS; i++){
-          pthread_create(  &thread_id[i], NULL,
-            print_message_function, NULL);
-        }
-
-        //waits for thread to finish
-        for(int j =0; j < NTHREADS; j++){
-          pthread_join(thread_id[j], NULL);
-        }
-
-
-    //pthread_join( thread1, NULL);
-    //pthread_join( thread2, NULL);
-    printf("FINAL COUNTER VALUE: %d \n", counter);
-    //exit(0);
+}
 }
     void *print_message_function( void *ptr ){
 
-      printf("THREAD NUMEBR:  %ld\n", pthread_self() );
+    //  printf("THREAD NUMEBR:  %d\n", pthread_self() );
       pthread_mutex_lock( &mutex1);
       counter++;
-      printf("Counter VALUE: %d\n", counter );
+      printf("THREAD NUMEBR:  %ld\n", pthread_self(),"Counter VALUE: %d", counter );
       pthread_mutex_unlock (&mutex1);
 
       return  0;
